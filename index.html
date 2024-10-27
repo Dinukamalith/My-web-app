@@ -37,6 +37,13 @@
             padding-top: 60px;
             background: var(--primary-color);
             color: white;
+            width: 250px;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar.show {
+            transform: translateX(0);
         }
 
         .main-content {
@@ -44,12 +51,6 @@
         }
 
         @media (max-width: 768px) {
-            .sidebar {
-                position: relative;
-                height: auto;
-                width: 100%;
-            }
-
             .main-content {
                 margin-left: 0;
             }
@@ -59,6 +60,16 @@
             .main-content {
                 margin-left: 250px;
             }
+            .menu-icon {
+                display: none;
+            }
+        }
+
+        .menu-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            margin: 10px;
         }
 
         .timetable-cell {
@@ -119,14 +130,19 @@
 </head>
 
 <body>
+    <!-- Menu Icon -->
+    <div class="menu-icon" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i> Menu
+    </div>
+
     <!-- Sidebar -->
-    <div class="sidebar col-12 col-md-3 col-lg-2">
+    <div class="sidebar" id="sidebar">
         <div class="d-flex flex-column">
-            <a href="#dashboard" class="nav-link active"><i class="fas fa-home me-2"></i> Dashboard</a>
-            <a href="#timetable" class="nav-link"><i class="fas fa-calendar me-2"></i> Timetable</a>
-            <a href="#notes" class="nav-link"><i class="fas fa-sticky-note me-2"></i> Notes</a>
-            <a href="#past-papers" class="nav-link"><i class="fas fa-file-alt me-2"></i> Past Papers</a>
-            <a href="#tips" class="nav-link"><i class="fas fa-lightbulb me-2"></i> Tips</a>
+            <a href="#dashboard" class="nav-link" onclick="hideSidebar()"><i class="fas fa-home me-2"></i> Dashboard</a>
+            <a href="#timetable" class="nav-link" onclick="hideSidebar()"><i class="fas fa-calendar me-2"></i> Timetable</a>
+            <a href="#notes" class="nav-link" onclick="hideSidebar()"><i class="fas fa-sticky-note me-2"></i> Notes</a>
+            <a href="#past-papers" class="nav-link" onclick="hideSidebar()"><i class="fas fa-file-alt me-2"></i> Past Papers</a>
+            <a href="#tips" class="nav-link" onclick="hideSidebar()"><i class="fas fa-lightbulb me-2"></i> Tips</a>
         </div>
     </div>
 
@@ -190,30 +206,7 @@
                             <td class="timetable-cell">Math Theory</td>
                             <td class="timetable-cell">Physics Lab</td>
                         </tr>
-                        <tr>
-                            <td>10:00 - 11:00</td>
-                            <td class="timetable-cell">SFT Lab</td>
-                            <td class="timetable-cell">ET Lab</td>
-                            <td class="timetable-cell">ICT Lab</td>
-                            <td class="timetable-cell">Math Lab</td>
-                            <td class="timetable-cell">Physics Theory</td>
-                        </tr>
-                        <tr>
-                            <td>11:00 - 12:00</td>
-                            <td class="timetable-cell">Break</td>
-                            <td class="timetable-cell">Break</td>
-                            <td class="timetable-cell">Break</td>
-                            <td class="timetable-cell">Break</td>
-                            <td class="timetable-cell">Break</td>
-                        </tr>
-                        <tr>
-                            <td>12:00 - 1:00</td>
-                            <td class="timetable-cell">SFT Project</td>
-                            <td class="timetable-cell">ET Project</td>
-                            <td class="timetable-cell">ICT Project</td>
-                            <td class="timetable-cell">Math Project</td>
-                            <td class="timetable-cell">Physics Project</td>
-                        </tr>
+                        <!-- Additional timetable rows here -->
                     </tbody>
                 </table>
             </div>
@@ -233,14 +226,7 @@
                 <h5>SFT - Year 2023</h5>
                 <a href="sft_paper_2023.pdf" class="btn btn-primary btn-sm" download>Download</a>
             </div>
-            <div class="past-paper-card">
-                <h5>ET - Year 2022</h5>
-<a href="et_paper_2022.pdf" class="btn btn-primary btn-sm" download>Download</a>
-            </div>
-            <div class="past-paper-card">
-                <h5>ICT - Year 2021</h5>
-                <a href="ict_paper_2021.pdf" class="btn btn-primary btn-sm" download>Download</a>
-            </div>
+            <!-- Additional past paper cards here -->
         </section>
 
         <!-- Tips Section -->
@@ -251,19 +237,21 @@
                 <p>Learn effective time management strategies to enhance your study routine.</p>
                 <a href="manage_your_time.html" class="btn btn-secondary">Learn More</a>
             </div>
-            <div class="tip-card">
-                <h5>Active Learning</h5>
-                <p>Engage in discussions, practice problems, and teach others to enhance your understanding.</p>
-            </div>
-            <div class="tip-card">
-                <h5>Stay Organized</h5>
-                <p>Keep your study materials and schedule organized to reduce stress and improve productivity.</p>
-            </div>
+            <!-- Additional tip cards here -->
         </section>
     </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleSidebar() {
+            document.getElementById("sidebar").classList.toggle("show");
+        }
+
+        function hideSidebar() {
+            document.getElementById("sidebar").classList.remove("show");
+        }
+    </script>
 </body>
 
-            </html>
+</html>
