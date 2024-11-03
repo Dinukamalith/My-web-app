@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,13 +18,13 @@
             --accent-color: #e74c3c;
         }
 
-        /* Main Layout */
         .custom-card {
             transition: transform 0.3s ease;
             border: none;
             border-radius: 15px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
         .custom-card:hover {
             transform: translateY(-5px);
         }
@@ -33,41 +34,30 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 250px;
             padding-top: 60px;
             background: var(--primary-color);
             color: white;
-            transition: transform 0.3s ease;
-            z-index: 1050;
-        }
-
-        .sidebar.hide {
-            transform: translateX(-100%);
-        }
-
-        .menu-icon {
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            z-index: 1100;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            cursor: pointer;
         }
 
         .main-content {
             padding: 20px;
-            transition: margin-left 0.3s ease;
         }
 
         @media (max-width: 768px) {
             .sidebar {
+                position: relative;
+                height: auto;
                 width: 100%;
-                height: 100%;
-                transform: translateX(-100%);
             }
-            .sidebar.show ~ .main-content {
-                display: none;
+
+            .main-content {
+                margin-left: 0;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .main-content {
+                margin-left: 250px;
             }
         }
 
@@ -92,22 +82,51 @@
             background-color: var(--secondary-color);
             color: white;
         }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .notes-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .past-paper-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .tips-section {
+            margin-top: 20px;
+        }
+
+        .tip-card {
+            background-color: #f0f4f7;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
-<body>
-    <!-- Menu Icon -->
-    <div class="menu-icon" onclick="toggleSidebar()">
-        <i class="fas fa-bars"></i>
-    </div>
 
+<body>
     <!-- Sidebar -->
-    <div id="sidebar" class="sidebar hide">
+    <div class="sidebar col-12 col-md-3 col-lg-2">
         <div class="d-flex flex-column">
-            <a href="#dashboard" class="nav-link" onclick="navigateAndClose()">Dashboard</a>
-            <a href="#timetable" class="nav-link" onclick="navigateAndClose()">Timetable</a>
-            <a href="#notes" class="nav-link" onclick="navigateAndClose()">Notes</a>
-            <a href="#past-papers" class="nav-link" onclick="navigateAndClose()">Past Papers</a>
-            <a href="#tips" class="nav-link" onclick="navigateAndClose()">Tips</a>
+            <a href="#dashboard" class="nav-link active"><i class="fas fa-home me-2"></i> Dashboard</a>
+            <a href="#timetable" class="nav-link"><i class="fas fa-calendar me-2"></i> Timetable</a>
+            <a href="#notes" class="nav-link"><i class="fas fa-sticky-note me-2"></i> Notes</a>
+            <a href="#past-papers" class="nav-link"><i class="fas fa-file-alt me-2"></i> Past Papers</a>
+            <a href="#tips" class="nav-link"><i class="fas fa-lightbulb me-2"></i> Tips</a>
         </div>
     </div>
 
@@ -116,21 +135,135 @@
         <!-- Dashboard Section -->
         <section id="dashboard" class="animate__animated animate__fadeIn">
             <h2 class="mb-4">Dashboard</h2>
-            <!-- Dashboard content here -->
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="custom-card card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-flask feature-icon"></i>
+                            <h5 class="card-title">SFT</h5>
+                            <p class="card-text">Science For Technology Tools & Resources</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="custom-card card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-cogs feature-icon"></i>
+                            <h5 class="card-title">ET</h5>
+                            <p class="card-text">Engineering Technology Resources</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="custom-card card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-laptop-code feature-icon"></i>
+                            <h5 class="card-title">ICT</h5>
+                            <p class="card-text">Information Technology Materials</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-        <!-- Add other sections as needed (timetable, notes, etc.) -->
+
+        <!-- Timetable Section -->
+        <section id="timetable" class="mt-5">
+            <h2 class="mb-4">Timetable</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>9:00 - 10:00</td>
+                            <td class="timetable-cell">SFT Theory</td>
+                            <td class="timetable-cell">ET Theory</td>
+                            <td class="timetable-cell">ICT Theory</td>
+                            <td class="timetable-cell">Math Theory</td>
+                            <td class="timetable-cell">Physics Lab</td>
+                        </tr>
+                        <tr>
+                            <td>10:00 - 11:00</td>
+                            <td class="timetable-cell">SFT Lab</td>
+                            <td class="timetable-cell">ET Lab</td>
+                            <td class="timetable-cell">ICT Lab</td>
+                            <td class="timetable-cell">Math Lab</td>
+                            <td class="timetable-cell">Physics Theory</td>
+                        </tr>
+                        <tr>
+                            <td>11:00 - 12:00</td>
+                            <td class="timetable-cell">Break</td>
+                            <td class="timetable-cell">Break</td>
+                            <td class="timetable-cell">Break</td>
+                            <td class="timetable-cell">Break</td>
+                            <td class="timetable-cell">Break</td>
+                        </tr>
+                        <tr>
+                            <td>12:00 - 1:00</td>
+                            <td class="timetable-cell">SFT Project</td>
+                            <td class="timetable-cell">ET Project</td>
+                            <td class="timetable-cell">ICT Project</td>
+                            <td class="timetable-cell">Math Project</td>
+                            <td class="timetable-cell">Physics Project</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Notes Section -->
+        <section id="notes" class="notes-section">
+            <h2 class="mb-4">Notes</h2>
+            <p>Download notes for SFT, ET, ICT, Math, and Physics.</p>
+            <a href="sample_note.pdf" class="btn btn-success" download>Download Notes</a>
+        </section>
+
+        <!-- Past Papers Section -->
+        <section id="past-papers" class="mt-5">
+            <h2 class="mb-4">Past Papers</h2>
+            <div class="past-paper-card">
+                <h5>SFT - Year 2023</h5>
+                <a href="sft_paper_2023.pdf" class="btn btn-primary btn-sm" download>Download</a>
+            </div>
+            <div class="past-paper-card">
+                <h5>ET - Year 2022</h5>
+<a href="et_paper_2022.pdf" class="btn btn-primary btn-sm" download>Download</a>
+            </div>
+            <div class="past-paper-card">
+                <h5>ICT - Year 2021</h5>
+                <a href="ict_paper_2021.pdf" class="btn btn-primary btn-sm" download>Download</a>
+            </div>
+        </section>
+
+        <!-- Tips Section -->
+        <section id="tips" class="tips-section">
+            <h2 class="mb-4">Study Tips</h2>
+            <div class="tip-card">
+                <h5>Manage Your Time</h5>
+                <p>Learn effective time management strategies to enhance your study routine.</p>
+                <a href="manage_your_time.html" class="btn btn-secondary">Learn More</a>
+            </div>
+            <div class="tip-card">
+                <h5>Active Learning</h5>
+                <p>Engage in discussions, practice problems, and teach others to enhance your understanding.</p>
+            </div>
+            <div class="tip-card">
+                <h5>Stay Organized</h5>
+                <p>Keep your study materials and schedule organized to reduce stress and improve productivity.</p>
+            </div>
+        </section>
     </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function toggleSidebar() {
-            document.getElementById("sidebar").classList.toggle("show");
-        }
-
-        function navigateAndClose() {
-            document.getElementById("sidebar").classList.remove("show");
-        }
-    </script>
 </body>
+
 </html>
