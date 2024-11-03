@@ -90,144 +90,99 @@
         <!-- Sidebar -->
         <div id="sidebar" class="sidebar col-md-3 col-lg-2">
             <div class="d-flex flex-column">
-                <a href="#dashboard" class="nav-link active"><i class="fas fa-home me-2"></i> Dashboard</a>
-                <a href="#timetable" class="nav-link"><i class="fas fa-calendar me-2"></i> Timetable</a>
-                <a href="#notes" class="nav-link"><i class="fas fa-sticky-note me-2"></i> Notes</a>
-                <a href="#past-papers" class="nav-link"><i class="fas fa-file-alt me-2"></i> Past Papers</a>
-                <a href="#tips" class="nav-link"><i class="fas fa-lightbulb me-2"></i> Tips</a>
+                <a href="#dashboard" class="nav-link active" onclick="closeSidebarOnMobile()"><i class="fas fa-home me-2"></i> Dashboard</a>
+                <a href="#timetable" class="nav-link" onclick="closeSidebarOnMobile()"><i class="fas fa-calendar me-2"></i> Timetable</a>
+                <a href="#notes" class="nav-link" onclick="closeSidebarOnMobile()"><i class="fas fa-sticky-note me-2"></i> Notes</a>
+                <a href="#past-papers" class="nav-link" onclick="closeSidebarOnMobile()"><i class="fas fa-file-alt me-2"></i> Past Papers</a>
+                <a href="#tips" class="nav-link" onclick="closeSidebarOnMobile()"><i class="fas fa-lightbulb me-2"></i> Tips</a>
             </div>
         </div>
 
-    <!-- Main Content -->
-<div class="main-content container-fluid">
-        <!-- Dashboard Section -->
-        <section id="dashboard" class="animate__animated animate__fadeIn">
-            <h2 class="mb-4">Dashboard</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="custom-card card">
-                        <div class="card-body text-center">
-                            <i class="fas fa-flask feature-icon"></i>
-                            <h5 class="card-title">SFT</h5>
-                            <p class="card-text">Science For Technology Tools & Resources</p>
+        <!-- Main Content -->
+        <div class="main-content container-fluid">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="animate__animated animate__fadeIn">
+                <h2 class="mb-4">Dashboard</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="custom-card card">
+                            <div class="card-body text-center">
+                                <i class="fas fa-flask feature-icon"></i>
+                                <h5 class="card-title">SFT</h5>
+                                <p class="card-text">Science For Technology Tools & Resources</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="custom-card card">
+                            <div class="card-body text-center">
+                                <i class="fas fa-cogs feature-icon"></i>
+                                <h5 class="card-title">ET</h5>
+                                <p class="card-text">Engineering Technology Resources</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="custom-card card">
+                            <div class="card-body text-center">
+                                <i class="fas fa-laptop-code feature-icon"></i>
+                                <h5 class="card-title">ICT</h5>
+                                <p class="card-text">Information Technology Materials</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="custom-card card">
-                        <div class="card-body text-center">
-                            <i class="fas fa-cogs feature-icon"></i>
-                            <h5 class="card-title">ET</h5>
-                            <p class="card-text">Engineering Technology Resources</p>
-                        </div>
-                    </div>
+            </section>
+
+            <!-- Timetable Section -->
+            <section id="timetable" class="mt-5">
+                <h2 class="mb-4">Timetable</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Monday</th>
+                                <th>Tuesday</th>
+                                <th>Wednesday</th>
+                                <th>Thursday</th>
+                                <th>Friday</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>9:00 - 10:00</td>
+                                <td class="timetable-cell">SFT Theory</td>
+                                <td class="timetable-cell">ET Theory</td>
+                                <td class="timetable-cell">ICT Theory</td>
+                                <td class="timetable-cell">Math Theory</td>
+                                <td class="timetable-cell">Physics Lab</td>
+                            </tr>
+                            <!-- More rows as needed -->
+                        </tbody>
+                    </table>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="custom-card card">
-                        <div class="card-body text-center">
-                            <i class="fas fa-laptop-code feature-icon"></i>
-                            <h5 class="card-title">ICT</h5>
-                            <p class="card-text">Information Technology Materials</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Timetable Section -->
-        <section id="timetable" class="mt-5">
-            <h2 class="mb-4">Timetable</h2>
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Time</th>
-                            <th>Monday</th>
-                            <th>Tuesday</th>
-                            <th>Wednesday</th>
-                            <th>Thursday</th>
-                            <th>Friday</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>9:00 - 10:00</td>
-                            <td class="timetable-cell">SFT Theory</td>
-                            <td class="timetable-cell">ET Theory</td>
-                            <td class="timetable-cell">ICT Theory</td>
-                            <td class="timetable-cell">Math Theory</td>
-                            <td class="timetable-cell">Physics Lab</td>
-                        </tr>
-                        <tr>
-                            <td>10:00 - 11:00</td>
-                            <td class="timetable-cell">SFT Lab</td>
-                            <td class="timetable-cell">ET Lab</td>
-                            <td class="timetable-cell">ICT Lab</td>
-                            <td class="timetable-cell">Math Lab</td>
-                            <td class="timetable-cell">Physics Theory</td>
-                        </tr>
-                        <tr>
-                            <td>11:00 - 12:00</td>
-                            <td class="timetable-cell">Break</td>
-                            <td class="timetable-cell">Break</td>
-                            <td class="timetable-cell">Break</td>
-                            <td class="timetable-cell">Break</td>
-                            <td class="timetable-cell">Break</td>
-                        </tr>
-                        <tr>
-                            <td>12:00 - 1:00</td>
-                            <td class="timetable-cell">SFT Project</td>
-                            <td class="timetable-cell">ET Project</td>
-                            <td class="timetable-cell">ICT Project</td>
-                            <td class="timetable-cell">Math Project</td>
-                            <td class="timetable-cell">Physics Project</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+            <!-- Notes Section -->
+            <section id="notes" class="notes-section">
+                <h2 class="mb-4">Notes</h2>
+                <p>Download notes for SFT, ET, ICT, Math, and Physics.</p>
+                <a href="sample_note.pdf" class="btn btn-success" download>Download Notes</a>
+            </section>
 
-        <!-- Notes Section -->
-        <section id="notes" class="notes-section">
-            <h2 class="mb-4">Notes</h2>
-            <p>Download notes for SFT, ET, ICT, Math, and Physics.</p>
-            <a href="sample_note.pdf" class="btn btn-success" download>Download Notes</a>
-        </section>
+            <!-- Past Papers Section -->
+            <section id="past-papers" class="mt-5">
+                <h2 class="mb-4">Past Papers</h2>
+                <!-- More content here -->
+            </section>
 
-        <!-- Past Papers Section -->
-        <section id="past-papers" class="mt-5">
-            <h2 class="mb-4">Past Papers</h2>
-            <div class="past-paper-card">
-                <h5>SFT - Year 2023</h5>
-                <a href="sft_paper_2023.pdf" class="btn btn-primary btn-sm" download>Download</a>
-            </div>
-            <div class="past-paper-card">
-                <h5>ET - Year 2022</h5>
-<a href="et_paper_2022.pdf" class="btn btn-primary btn-sm" download>Download</a>
-            </div>
-            <div class="past-paper-card">
-                <h5>ICT - Year 2021</h5>
-                <a href="ict_paper_2021.pdf" class="btn btn-primary btn-sm" download>Download</a>
-            </div>
-        </section>
-
-        <!-- Tips Section -->
-        <section id="tips" class="tips-section">
-            <h2 class="mb-4">Study Tips</h2>
-            <div class="tip-card">
-                <h5>Manage Your Time</h5>
-                <p>Learn effective time management strategies to enhance your study routine.</p>
-                <a href="manage_your_time.html" class="btn btn-secondary">Learn More</a>
-            </div>
-            <div class="tip-card">
-                <h5>Active Learning</h5>
-                <p>Engage in discussions, practice problems, and teach others to enhance your understanding.</p>
-            </div>
-            <div class="tip-card">
-                <h5>Stay Organized</h5>
-                <p>Keep your study materials and schedule organized to reduce stress and improve productivity.</p>
-            </div>
-        </section>
+            <!-- Tips Section -->
+            <section id="tips" class="tips-section">
+                <h2 class="mb-4">Study Tips</h2>
+                <!-- More content here -->
+            </section>
+        </div>
     </div>
 
     <!-- Bootstrap JS -->
@@ -240,6 +195,22 @@
             sidebar.classList.toggle("active");
             contentWrapper.classList.toggle("shifted");
         }
+
+        // Close sidebar on mobile after a link is clicked
+        function closeSidebarOnMobile() {
+            if (window.innerWidth <= 768) {
+                document.getElementById("sidebar").classList.add("active");
+                document.querySelector(".content-wrapper").classList.remove("shifted");
+            }
+        }
+
+        // Close sidebar if window is resized from mobile to desktop
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 768) {
+                document.getElementById("sidebar").classList.remove("active");
+                document.querySelector(".content-wrapper").classList.remove("shifted");
+            }
+        });
     </script>
 </body>
 </html>
