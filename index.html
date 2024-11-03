@@ -15,6 +15,12 @@
             --secondary-color: #f8f9fa; /* Light background color */
         }
 
+        /* Wrapper for sidebar and main content */
+        .content-wrapper {
+            display: flex;
+            transition: margin-left 0.3s ease;
+        }
+
         /* Sidebar Styling */
         .sidebar {
             height: 100vh;
@@ -26,6 +32,7 @@
             color: white;
             width: 250px;
             transition: transform 0.3s ease;
+            z-index: 1000;
         }
 
         /* Sidebar Links */
@@ -61,14 +68,14 @@
                 position: fixed;
                 top: 15px;
                 left: 15px;
-                z-index: 1000;
+                z-index: 1100;
                 cursor: pointer;
                 color: var(--primary-color);
             }
 
-            /* Main content margin reset on mobile */
-            .main-content {
-                margin-left: 0;
+            /* Main content shifts to the right when sidebar is visible */
+            .content-wrapper.shifted {
+                margin-left: 250px;
             }
         }
     </style>
@@ -79,16 +86,17 @@
         <i class="fas fa-bars fa-2x"></i>
     </div>
 
-    <!-- Sidebar -->
-    <div id="sidebar" class="sidebar col-md-3 col-lg-2">
-        <div class="d-flex flex-column">
-            <a href="#dashboard" class="nav-link active"><i class="fas fa-home me-2"></i> Dashboard</a>
-            <a href="#timetable" class="nav-link"><i class="fas fa-calendar me-2"></i> Timetable</a>
-            <a href="#notes" class="nav-link"><i class="fas fa-sticky-note me-2"></i> Notes</a>
-            <a href="#past-papers" class="nav-link"><i class="fas fa-file-alt me-2"></i> Past Papers</a>
-            <a href="#tips" class="nav-link"><i class="fas fa-lightbulb me-2"></i> Tips</a>
+    <div class="content-wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar col-md-3 col-lg-2">
+            <div class="d-flex flex-column">
+                <a href="#dashboard" class="nav-link active"><i class="fas fa-home me-2"></i> Dashboard</a>
+                <a href="#timetable" class="nav-link"><i class="fas fa-calendar me-2"></i> Timetable</a>
+                <a href="#notes" class="nav-link"><i class="fas fa-sticky-note me-2"></i> Notes</a>
+                <a href="#past-papers" class="nav-link"><i class="fas fa-file-alt me-2"></i> Past Papers</a>
+                <a href="#tips" class="nav-link"><i class="fas fa-lightbulb me-2"></i> Tips</a>
+            </div>
         </div>
-    </div>
 
     <!-- Main Content -->
 <div class="main-content container-fluid">
@@ -228,7 +236,9 @@
         // Toggle the sidebar visibility
         function toggleSidebar() {
             const sidebar = document.getElementById("sidebar");
+            const contentWrapper = document.querySelector(".content-wrapper");
             sidebar.classList.toggle("active");
+            contentWrapper.classList.toggle("shifted");
         }
     </script>
 </body>
