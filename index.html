@@ -1,34 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Student Hub</title>
+    <title>Responsive Sidebar with Toggle</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Animation CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-    <!-- Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* CSS Variables for Custom Colors */
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
+            --primary-color: #343a40; /* Dark background color */
+            --secondary-color: #f8f9fa; /* Light background color */
         }
 
-        .custom-card {
-            transition: transform 0.3s ease;
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .custom-card:hover {
-            transform: translateY(-5px);
-        }
-
+        /* Sidebar Styling */
         .sidebar {
             height: 100vh;
             position: fixed;
@@ -37,136 +24,61 @@
             padding-top: 60px;
             background: var(--primary-color);
             color: white;
+            width: 250px;
+            transition: transform 0.3s ease;
         }
 
-        .main-content {
-            padding: 20px;
+        /* Sidebar Links */
+        .sidebar .nav-link {
+            color: white;
+            font-weight: 500;
+            margin: 10px 0;
+        }
+        .sidebar .nav-link.active,
+        .sidebar .nav-link:hover {
+            color: var(--secondary-color);
         }
 
+        /* Initially hide the sidebar on mobile */
+        .sidebar.active {
+            transform: translateX(-250px);
+        }
+
+        /* Mobile Styling */
         @media (max-width: 768px) {
+            /* Hide sidebar by default on small screens */
             .sidebar {
-                position: relative;
-                height: auto;
-                width: 100%;
+                transform: translateX(-250px);
             }
 
+            /* Show sidebar when active */
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            /* Menu Icon */
+            .menu-icon {
+                position: fixed;
+                top: 15px;
+                left: 15px;
+                z-index: 1000;
+                cursor: pointer;
+                color: var(--primary-color);
+            }
+
+            /* Main content margin reset on mobile */
             .main-content {
                 margin-left: 0;
             }
         }
-
-        @media (min-width: 769px) {
-            .main-content {
-                margin-left: 250px;
-            }
-        }
-
-        .timetable-cell {
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .timetable-cell:hover {
-            background-color: #e9ecef;
-        }
-
-        .nav-link {
-            color: white;
-            padding: 10px 20px;
-            margin: 5px 0;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-
-        .feature-icon {
-            font-size: 2rem;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-        }
-
-        .notes-section {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        .past-paper-card {
-            background: white;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 10px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .tips-section {
-            margin-top: 20px;
-        }
-
-        .tip-card {
-            background-color: #f0f4f7;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Sidebar Styling */
-.sidebar {
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding-top: 60px;
-    background: var(--primary-color);
-    color: white;
-    width: 250px;
-    transition: transform 0.3s ease;
-}
-
-/* Initially hide the sidebar on mobile */
-.sidebar.active {
-    transform: translateX(-250px);
-}
-
-@media (max-width: 768px) {
-    /* Hide sidebar by default on small screens */
-    .sidebar {
-        transform: translateX(-250px);
-    }
-
-    /* Show sidebar when active */
-    .sidebar.active {
-        transform: translateX(0);
-    }
-
-    .menu-icon {
-        position: fixed;
-        top: 15px;
-        left: 15px;
-        z-index: 1000;
-        cursor: pointer;
-        color: var(--primary-color);
-    }
-
-    .main-content {
-        margin-left: 0;
-    }
-}
-
     </style>
 </head>
-
 <body>
-        <!-- Menu Icon (for mobile view) -->
+    <!-- Menu Icon (for mobile view) -->
     <div class="menu-icon d-md-none" onclick="toggleSidebar()">
         <i class="fas fa-bars fa-2x"></i>
     </div>
+
     <!-- Sidebar -->
     <div id="sidebar" class="sidebar col-md-3 col-lg-2">
         <div class="d-flex flex-column">
