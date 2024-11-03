@@ -115,12 +115,60 @@
             margin-bottom: 15px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
+
+        /* Sidebar Styling */
+.sidebar {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 60px;
+    background: var(--primary-color);
+    color: white;
+    width: 250px;
+    transition: transform 0.3s ease;
+}
+
+/* Initially hide the sidebar on mobile */
+.sidebar.active {
+    transform: translateX(-250px);
+}
+
+@media (max-width: 768px) {
+    /* Hide sidebar by default on small screens */
+    .sidebar {
+        transform: translateX(-250px);
+    }
+
+    /* Show sidebar when active */
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .menu-icon {
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1000;
+        cursor: pointer;
+        color: var(--primary-color);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
+
     </style>
 </head>
 
 <body>
+        <!-- Menu Icon (for mobile view) -->
+    <div class="menu-icon d-md-none" onclick="toggleSidebar()">
+        <i class="fas fa-bars fa-2x"></i>
+    </div>
     <!-- Sidebar -->
-    <div class="sidebar col-12 col-md-3 col-lg-2">
+    <div id="sidebar" class="sidebar col-md-3 col-lg-2">
         <div class="d-flex flex-column">
             <a href="#dashboard" class="nav-link active"><i class="fas fa-home me-2"></i> Dashboard</a>
             <a href="#timetable" class="nav-link"><i class="fas fa-calendar me-2"></i> Timetable</a>
@@ -131,7 +179,7 @@
     </div>
 
     <!-- Main Content -->
-    <div class="main-content container-fluid">
+<div class="main-content container-fluid">
         <!-- Dashboard Section -->
         <section id="dashboard" class="animate__animated animate__fadeIn">
             <h2 class="mb-4">Dashboard</h2>
@@ -264,6 +312,12 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Toggle the sidebar visibility
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("active");
+        }
+    </script>
 </body>
-
 </html>
